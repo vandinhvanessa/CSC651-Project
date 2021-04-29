@@ -3,6 +3,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse 
 
 from app.routers import employee
+from app.routers import employeeAdd
 
 from app.sql_db import models
 
@@ -31,6 +32,14 @@ app.include_router(
         employee.router,
         prefix="/employee",
         tags=["employee"]
+)
+
+app.include_router(employeeAdd.router)
+
+app.include_router(
+        employeeAdd.router,
+        prefix="/employeeAdd",
+        tags=["employeeAdd"]
 )
 
 # include the routers

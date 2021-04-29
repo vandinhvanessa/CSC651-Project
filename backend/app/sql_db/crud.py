@@ -17,12 +17,18 @@ Author(s): This file contains logic for many routers, all team members contribut
 def get_employees(db: Session):
     return db.query(models.Employees).all()
 
-def create_employee(db: Session, employee: schemas.Employee):
-    db_user = models.Employees(name = employee.name, position = employee.position, start = employee.start, salary = employee.salary,
-            email = employee.email, phone = employee.phone)
-    db.add(db_user)
+def create_employee(db: Session, name, position, salary, email, phone):
+    employee = models.Employees()
+    employee.name = name
+    employee.position = position
+    employee.salary = salary
+    employee.email = email
+    employee.phone = phone
+    
+    db.add(employee)
     db.commit()
-    db.refresh(db_user)
-    return db_user
+    db.refresh(employee)
+
+    return employee 
 
 

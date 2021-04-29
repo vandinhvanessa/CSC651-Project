@@ -1,0 +1,30 @@
+
+<html>
+   <head>
+	   <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+	   <script src ="/javascript/addEmployee.js"></script>
+	   <link rel="stylesheet" href="/stylesheets/styles.css">
+   </head>
+
+   <body>
+	<h1>Toe Jam Corporation</h1>
+	<form id="add-employee-form" action="/employeeAdd/" method="post">
+  	   <label for="name">Name:</label><br>
+           <input type="text" id="name" name="name"><br>
+           <label for="position">Position:</label><br>
+	   <input type="text" id="position" name="position"><br>
+           <label for="salary">Salary:</label><br>
+	   <input type="text" id="salary" name="salary"><br>
+           <label for="email">Email:</label><br>
+	   <input type="text" id="email" name="email"><br>
+           <label for="phone">Phone:</label><br>
+	   <input type="text" id="phone" name="phone"><br>
+           <button type="submit" form="add-employee-form" value="Submit">Submit</button>
+        </form>
+
+   </body>
+
+</html>
