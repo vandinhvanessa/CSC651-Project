@@ -2,7 +2,9 @@ from app.sql_db import crud, schemas
 from app.sql_db.database import get_db
 
 from fastapi import APIRouter, Depends, Form, UploadFile, File
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
+
+from starlette.status import HTTP_302_FOUND
 
 from sqlalchemy.orm import Session
 
@@ -22,8 +24,8 @@ async def get_add_employee_page():
 
     return html
 
-@router.post("/", response_class=HTMLResponse)
-async def get_add_employee_page(db: Session = Depends(get_db),
+@router.post("/")
+async def add_employee(db: Session = Depends(get_db),
                                 name: str = Form(...),
                                 position: str = Form(...),
                                 salary: int = Form(...),
@@ -31,3 +33,4 @@ async def get_add_employee_page(db: Session = Depends(get_db),
                                 phone: str = Form(...)):
 
     crud.create_employee(db, name, position, salary, email, phone)
+    return RedirectResponse("/html/index.html", status_code=HTTP_302_FOUND)

@@ -5,7 +5,6 @@
   src="https://code.jquery.com/jquery-3.6.0.js"
   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
   crossorigin="anonymous"></script>
-	   <script src ="/javascript/addEmployee.js"></script>
 	   <link rel="stylesheet" href="/stylesheets/styles.css">
    </head>
 
@@ -22,7 +21,7 @@
 	   <input type="text" id="email" name="email"><br>
            <label for="phone">Phone:</label><br>
 	   <input type="text" id="phone" name="phone"><br>
-           <button type="submit" form="add-employee-form" value="Submit">Submit</button>
+           <button id="submitButton" onclick="location.href = 'http://ec2-3-142-123-220.us-east-2.compute.amazonaws.com';" type="submit" form="add-employee-form" value="Submit">Submit</button>
         </form>
 
    </body>
